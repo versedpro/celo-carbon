@@ -14,18 +14,24 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  await deploy("Greeter", {
-    from: deployer,
-    args: ["hello world"],
-    log: true,
-  });
+  // await deploy("Greeter", {
+  //   from: deployer,
+  //   args: ["hello world"],
+  //   log: true,
+  // });
 
-  await deploy("Storage", {
-    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+  // await deploy("Storage", {
+  //   // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+  //   from: deployer,
+  //   //args: [ "Hello", ethers.utils.parseEther("1.5") ],
+  //   log: true,
+  // });
+
+  await deploy("CarbonCredit", {
     from: deployer,
-    //args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    log: true,
-  });
+    args: [deployer, "Carbon Credit Token", "CCT"],
+    log: true
+  })
 
   // Getting a previously deployed contract
   // const Greeter = new ethers.Contract("Greeter", deployer);

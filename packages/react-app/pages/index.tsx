@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Tabs, Tab, Typography, Box, Link } from "@mui/material";
-import deployedContracts from "../../hardhat/deployments/hardhat_contracts.json";
+import deployedContracts from "../../hardhat/deployments/hardhat_carbon.json";
 import { useContractKit } from "@celo-tools/use-contractkit";
-import { StorageContract, GreeterContract, ButtonAppBar } from "@/components";
+import { StorageContract, GreeterContract, CarbonCreditContract, ButtonAppBar } from "@/components";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -33,11 +33,14 @@ export default function App() {
             <Tab label="Greeter Contract" {...a11yProps(1)} />
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
+        {/* <TabPanel value={value} index={0}>
           <StorageContract contractData={contracts?.Storage} />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <GreeterContract contractData={contracts?.Greeter} />
+        </TabPanel> */}
+        <TabPanel value={value} index={0}>
+          <CarbonCreditContract contractData={contracts?.CarbonCredit} />
         </TabPanel>
       </Box>
     </div>

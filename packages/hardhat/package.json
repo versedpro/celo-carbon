@@ -7,8 +7,9 @@
   "scripts": {
     "accounts": "hardhat accounts",
     "devchain": "npx celo-devchain --port 8545",
-    "deploy": "hardhat deploy --export-all deployments/hardhat_contracts.json",
-    "deploy-reset-watch": "hardhat deploy --reset --watch --export-all deployments/hardhat_contracts.json",
+    "compile": "npx hardhat compile --force",
+    "deploy": "npx hardhat deploy --export-all deployments/hardhat_carbon.json",
+    "deploy-reset-watch": "npx hardhat deploy --reset --watch --export-all deployments/hardhat_carbon.json",
     "watch": "node scripts/watch.js",
     "fork-mainnet": "ganache --fork.url https://forno.celo.org --wallet.mnemonic 'concert load couple harbor equip island argue ramp clarify fence smart topic' --wallet.accountKeysPath './account_keys.json' --gasPrice 875000000"
   },
@@ -33,6 +34,7 @@
     "typechain": "^7.0.0"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
     "ganache": "^7.0.0"
   }
 }

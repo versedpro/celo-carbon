@@ -29,8 +29,9 @@ export default function App() {
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs">
-            <Tab label="Storage Contract" {...a11yProps(0)} />
-            <Tab label="Greeter Contract" {...a11yProps(1)} />
+            {/* <Tab label="Storage Contract" {...a11yProps(0)} />
+            <Tab label="Greeter Contract" {...a11yProps(1)} /> */}
+            <Tab label="Carbon Credit Contract" {...a11yProps(0)} />
           </Tabs>
         </Box>
         {/* <TabPanel value={value} index={0}>

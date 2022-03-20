@@ -35,11 +35,11 @@ export function CarbonCreditContract({ contractData }) {
     try {
       await performActions(async (kit) => {
         const gasLimit = await contract.methods
-          .depositCarbonCreditsFromCertificate(carbonCreditInput, hash)
+          .depositCarbonCreditsFromCertificate(carbonCreditInput as string, hash as string)
           .estimateGas();
 
         const result = await contract.methods
-          .depositCarbonCreditsFromCertificate(carbonCreditInput, hash)
+          .depositCarbonCreditsFromCertificate(carbonCreditInput as string, hash as string)
           //@ts-ignore
           .send({ from: address, gasLimit });
 
@@ -76,11 +76,11 @@ export function CarbonCreditContract({ contractData }) {
     try {
       await performActions(async (kit) => {
         const gasLimit = await contract.methods
-          .retire(retireValue)
+          .retire(retireValue as string)
           .estimateGas();
 
         const result = await contract.methods
-          .retire(retireValue)
+          .retire(retireValue as string)
           //@ts-ignore
           .send({ from: address, gasLimit });
 
@@ -137,8 +137,14 @@ export function CarbonCreditContract({ contractData }) {
         <Divider sx={{ m: 1 }} />
 
         <Typography variant="h6">Deposit Carbon Credit from Certificate</Typography>
-        <Box sx={{ m: 1, marginLeft: 0 }}>{setCarbonCreditInput}</Box>
-        <Box sx={{ m: 1, marginLeft: 0 }}>{setHash}</Box>
+        <div>
+          <div style={{ display: 'inline-block' }}><Typography>value:&nbsp;&nbsp;</Typography></div>
+          <Box sx={{ display: 'inline-block', m: 1, marginLeft: 0 }}>{setCarbonCreditInput}</Box>
+        </div>
+        <div>
+          <div style={{ display: 'inline-block' }}><Typography>hash:&nbsp;&nbsp;</Typography></div>
+          <Box sx={{ display: 'inline-block', m: 1, marginLeft: 0 }}>{setHash}</Box>
+        </div>
         <Button sx={{ m: 1, marginLeft: 0 }} variant="contained" onClick={depositCarbonCreditsFromCertificate}>
           Deposit
         </Button>
